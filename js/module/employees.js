@@ -31,3 +31,22 @@ export const getBossFullNameAndEmail = async() =>{
     })
     return dataUpdate
 }
+
+// 5 devuelve un listado con el nombre, apellidos y puesto de aquellos
+
+export const getAllFullnamePositionDiferentSalesRepresentative = async ()=>{
+    let res = await fetch("http://localhost:5502/employees?position_ne=Representante");
+    let data = await res.json();
+    let dateUpdata =[]
+    data.forEach(val => {
+        if(val.code_boss != null){
+            dataUpdata.unshift({
+                name: val.name,
+                fullLastname: `${val.lastname1} ${val.lastname2}`,
+                position: val.position
+            })
+        }
+    })
+    return dataUpdata;
+}
+
