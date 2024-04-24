@@ -31,7 +31,7 @@ export const getBossFullNameAndEmail = async()=>{
 }
 //5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados 
 // que no sean representantes de ventas.
-export const getAll = async()=>{
+export const getAllEmployeesNotSalesReps = async()=>{
     let res = await fetch("http://localhost:5502/employees?position_ne=Representante%20Ventas")
     let data = await res.json();
     let dataUpdate = [];
@@ -43,4 +43,13 @@ export const getAll = async()=>{
         })
     });
     return dataUpdate;
+}
+
+
+
+// Obtener la informacion de un empleado por su codigo
+export const getEmployByCode = async(code) =>{
+    let res = await fetch(`http://localhost:5502/employees?employee_code=${code}`);
+    let dataClients = await res.json();
+    return dataClients;
 }
