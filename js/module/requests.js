@@ -60,3 +60,23 @@ export const getTwoDaysBefore = async()=>{
     });
         return dataUpdate;
 }
+
+
+// 1. Devuelve un listado de todos los pedidos que fueron **rechazados** en `2009`.
+
+export const getRequestsRefused = async()=>{
+    let res = await fetch("http://localhost:5508/requests")
+    let data = await res.json();
+    let dataUpdate = data.filter(val=>(val.date_request[3] === "9" && val.status === "Rechazado"))
+    .map(val=>{
+        return {
+            code_request: val.code_request,
+            code_client: val.code_client,
+            date_request: val.date_request,
+            date_wait: val.date_wait,
+            date_delivery: val.date_delivery,
+            status: val.status
+        }
+    });
+        return dataUpdate;
+}

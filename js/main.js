@@ -13,6 +13,6 @@
 // } from "./module/clients.js";
 // console.log(await getClientsEmploy());
 import{
-    getNotTimeOut,getTwoDaysBefore
+    getNotTimeOut,getTwoDaysBefore, getRequestsRefused
 } from "./module/requests.js"
-console.log(await getTwoDaysBefore());
+console.log(await getRequestsRefused());
