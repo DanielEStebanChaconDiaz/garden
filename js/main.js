@@ -12,7 +12,11 @@
 //     getClientsEmploy
 // } from "./module/clients.js";
 // console.log(await getClientsEmploy());
-import{
-    getNotTimeOut,getTwoDaysBefore, getRequestsRefused
-} from "./module/requests.js"
-console.log(await getRequestsRefused());
+// import{
+//     getNotTimeOut,getTwoDaysBefore, getRequestsRefused, getRequestsDelivered
+// } from "./module/requests.js"
+// console.log(await getRequestsDelivered());
+import {
+    getAllPaymentsPaypal
+} from "./module/payments.js";
+console.log(await getAllPaymentsPaypal());
