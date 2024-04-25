@@ -23,3 +23,40 @@ export const getAllCodigo2008 = async()=>{
     })
     return dataUpdate;
 }
+
+// 1. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega 
+// de los pedidos que no han sido entregados a tiempo.
+export const getNotTimeOut = async()=>{
+    let res = await fetch("http://localhost:5508/requests")
+    let data = await res.json();
+    let dataUpdate = data.filter(val=>(val.date_wait < val.date_delivery))
+    .map(val=>{
+        return {
+            code_request: val.code_request,
+            code_client: val.code_client,
+            date_wait: val.date_wait,
+            date_delivery: val.date_delivery
+        }
+    });
+        return dataUpdate;
+}
+
+
+
+// 2. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y 
+// fecha de entrega de los pedidos cuya fecha de entrega ha sido al menos dos días antes de la 
+// fecha esperada.
+export const getTwoDaysBefore = async()=>{
+    let res = await fetch("http://localhost:5508/requests")
+    let data = await res.json();
+    let dataUpdate = data.filter(val=>(val.date_wait > val.date_delivery))
+    .map(val=>{
+        return {
+            code_request: val.code_request,
+            code_client: val.code_client,
+            date_wait: val.date_wait,
+            date_delivery: val.date_delivery
+        }
+    });
+        return dataUpdate;
+}

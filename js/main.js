@@ -8,7 +8,11 @@
 //     getAllCodigo2008
 // } from "./module/requests.js";
 // console.log(await getAllCodigo2008());
+// import{
+//     getClientsEmploy
+// } from "./module/clients.js";
+// console.log(await getClientsEmploy());
 import{
-    getClientsEmploy
-} from "./module/clients.js";
-console.log(await getClientsEmploy());
+    getNotTimeOut,getTwoDaysBefore
+} from "./module/requests.js"
+console.log(await getTwoDaysBefore());
