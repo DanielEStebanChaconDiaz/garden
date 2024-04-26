@@ -6,11 +6,12 @@ import {
 import { 
     getAllEmployeesWithBossAndCodeSeven,
     getBossFullNameAndEmail,
-    getAllEmployeesNotSalesReps
+    getAllEmployeesNotSalesReps,
+    getAll
 } from "./module/employees.js";
 import { 
-    getAll,
+    getAll2,
     getClientsEmploy
 } from "./module/clients.js";
 
-console.log(await getClientsEmploy());
+console.log(await getAll());

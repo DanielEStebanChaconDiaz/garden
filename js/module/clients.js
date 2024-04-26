@@ -11,7 +11,7 @@ import {
 // aquellos códigos de cliente que aparezcan repetidos. 
 // Resuelva la consulta:
 
-export const getAll = async()=>{
+export const getAll2 = async()=>{
     let res = await fetch("http://localhost:5501/clients")
     let data = await res.json();
     data.filter(val=>{
@@ -86,5 +86,12 @@ export const getClientsEmploy = async() =>{
         dataUpdate.name_employee = `${name} ${lastname1} ${lastname2}`
         clients[i] = dataUpdate
     }
+    // [
+    //     {
+    //         city: "San Francisco"
+    //         client_name : "GoldFish Garden"
+    //         name_employee: "Walter Santiago Sanchez Lopez"
+    //     }
+    // ]
     return clients;
 }
