@@ -11,14 +11,6 @@ import {
 // aquellos códigos de cliente que aparezcan repetidos. 
 // Resuelva la consulta:
 
-export const getAll2 = async()=>{
-    let res = await fetch("http://localhost:5501/clients")
-    let data = await res.json();
-    data.filter(val=>{
-        // if(val.)
-    })
-    return data;
-}
 
 
 
