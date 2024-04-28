@@ -48,6 +48,60 @@ queryAboutTable2.addEventListener("click", async(e)=>{
         report__container.innerHTML = plantilla;
     }
 })
+import {
+    getAllEmployeesWithBossAndCodeSeven,
+    getBossFullNameAndEmail
+}from './module/employees.js'
+const queryAboutTable3 = document.querySelector("#queryAboutTable3");
+queryAboutTable3.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable3.children
+    if(!report__container.innerHTML){
+        let data = await getAllEmployeesWithBossAndCodeSeven();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+            <div class="report__card">
+            <div class="card__title">
+                <div>${val.nombre}</div>
+            </div>
+            <div class="card__body">
+                <div class="body__marck">
+                <p><b>Apellidos del empleado: </b>${val.apellidos}</p>
+                <p><b>Email del empleado: </b>${val.email}</p>
+                </div>
+            </div>
+        </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
+const queryAboutTable4 = document.querySelector("#queryAboutTable4");
+queryAboutTable4.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable4.children
+    if(!report__container.innerHTML){
+        let data = await getBossFullNameAndEmail();
+        let plantilla = "";
+        console.log(data);
+        data.forEach(val => {
+            plantilla += `
+            <div class="report__card">
+            <div class="card__title">
+                <div>${val.nombre}</div>
+            </div>
+            <div class="card__body">
+                <div class="body__marck">
+                <p><b>Apellidos del empleado: </b>${val.apellidos}</p>
+                <p><b>Email del empleado: </b>${val.email}</p>
+                </div>
+            </div>
+        </div>
+            `;
+        });
+        report__container.innerHTML = plantilla;
+    }
+})
 import { getClientsEmploy } from "./module/clients.js";
 const queryAboutTable7 = document.querySelector("#queryAboutTable7");
 queryAboutTable7.addEventListener("click", async(e)=>{
